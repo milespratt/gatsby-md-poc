@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 export default function Template(props) {
   const {
@@ -12,9 +12,9 @@ export default function Template(props) {
       <nav>
         {pages.map(page => {
           return (
-            <a key={page.path} href={page.path}>
+            <Link key={page.path} to={page.path}>
               {page.title}
-            </a>
+            </Link>
           )
         })}
       </nav>
@@ -30,9 +30,9 @@ export default function Template(props) {
             <nav>
               {blogposts.map(blogpost => {
                 return (
-                  <a key={blogpost.path} href={blogpost.path}>
+                  <Link key={blogpost.path} to={blogpost.path}>
                     {blogpost.title}
-                  </a>
+                  </Link>
                 )
               })}
             </nav>
