@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import "../css/nav.module.css"
 
 export default function Template(props) {
   const {
