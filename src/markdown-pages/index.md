@@ -2,6 +2,7 @@
 slug: "/"
 title: "Home"
 order: 1
+type: "page"
 ---
 
 ## this is the home page

@@ -22,6 +22,13 @@ module.exports = {
         path: `${__dirname}/src/blog-posts`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `events`,
+        path: `${__dirname}/src/events`,
+      },
+    },
     `gatsby-transformer-remark`,
   ],
 }

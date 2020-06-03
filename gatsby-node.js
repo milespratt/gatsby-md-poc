@@ -2,6 +2,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const pageTemplate = require.resolve(`./src/templates/pageTemplate.js`)
+  const eventTemplate = require.resolve(`./src/templates/eventTemplate.js`)
   const blogpostTemplate = require.resolve(
     `./src/templates/blogpostTemplate.js`
   )
@@ -12,14 +13,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       pages: allMarkdownRemark(
         sort: { order: ASC, fields: [frontmatter___order] }
         limit: 1000
-        filter: { frontmatter: { type: { ne: "blogpost" } } }
+        filter: { frontmatter: { type: { eq: "page" } } }
       ) {
         edges {
           node {
             frontmatter {
               slug
               title
-              type
             }
           }
         }
@@ -34,7 +34,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               slug
               title
-              type
+            }
+          }
+        }
+      }
+      events: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+        filter: { frontmatter: { type: { eq: "event" } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+              title
             }
           }
         }
@@ -58,6 +71,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return { path: node.frontmatter.slug, title: node.frontmatter.title }
   })
 
+  // events array for event nav
+  const events = result.data.events.edges.map(({ node }) => {
+    return { path: node.frontmatter.slug, title: node.frontmatter.title }
+  })
+
   // build pages
   result.data.pages.edges.forEach(({ node }) => {
     createPage({
@@ -68,6 +86,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         slug: node.frontmatter.slug,
         pages,
         blogposts,
+        events,
       },
     })
   })
@@ -82,6 +101,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         slug: node.frontmatter.slug,
         pages,
         blogposts,
+      },
+    })
+  })
+
+  // build events
+  result.data.events.edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.slug,
+      component: eventTemplate,
+      context: {
+        slug: node.frontmatter.slug,
+        pages,
+        events,
       },
     })
   })

@@ -1,15 +1,14 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import "../css/nav.module.css"
 
 export default function Template(props) {
   const {
-    pageContext: { pages, blogposts, events },
+    pageContext: { pages, events },
   } = props
-  const { markdownRemark } = props.data
+  const { markdownRemark } = props.data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
-    <div className="page-container">
+    <div className="event-container">
       <nav>
         {pages.map(page => {
           return (
@@ -19,26 +18,13 @@ export default function Template(props) {
           )
         })}
       </nav>
-      <div className="page">
+      <div className="event">
         <h1>{frontmatter.title}</h1>
+        <h2>{frontmatter.date}</h2>
         <div
-          className="page-content"
+          className="event-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        {frontmatter.slug.includes("/blog") && (
-          <>
-            <h2>Blog Posts</h2>
-            <nav>
-              {blogposts.map(blogpost => {
-                return (
-                  <Link key={blogpost.path} to={blogpost.path}>
-                    {blogpost.title}
-                  </Link>
-                )
-              })}
-            </nav>
-          </>
-        )}
         {frontmatter.slug.includes("/events") && (
           <>
             <h2>Events</h2>
@@ -63,6 +49,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        date(formatString: "MMMM DD, YYYY")
         slug
         title
       }
