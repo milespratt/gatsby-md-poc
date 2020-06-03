@@ -83,6 +83,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: pageTemplate,
       context: {
         // additional data can be passed via context
+        // this is accessible as props
         slug: node.frontmatter.slug,
         pages,
         blogposts,
@@ -98,6 +99,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogpostTemplate,
       context: {
         // additional data can be passed via context
+        // this is accessible as props
         slug: node.frontmatter.slug,
         pages,
         blogposts,
@@ -111,6 +113,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: node.frontmatter.slug,
       component: eventTemplate,
       context: {
+        // additional data can be passed via context
+        // this is accessible as props
         slug: node.frontmatter.slug,
         pages,
         events,

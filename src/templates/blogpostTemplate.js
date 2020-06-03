@@ -1,5 +1,8 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+
+import PageNav from "../components/PageNav"
+import LinkList from "../components/LinkList"
 
 export default function Template(props) {
   const {
@@ -9,15 +12,7 @@ export default function Template(props) {
   const { frontmatter, html } = markdownRemark
   return (
     <div className="blog-post-container">
-      <nav>
-        {pages.map(page => {
-          return (
-            <Link key={page.path} to={page.path}>
-              {page.title}
-            </Link>
-          )
-        })}
-      </nav>
+      <PageNav pages={pages} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
@@ -28,15 +23,7 @@ export default function Template(props) {
         {frontmatter.slug.includes("/blog") && (
           <>
             <h2>Blog Posts</h2>
-            <nav>
-              {blogposts.map(blogpost => {
-                return (
-                  <Link key={blogpost.path} to={blogpost.path}>
-                    {blogpost.title}
-                  </Link>
-                )
-              })}
-            </nav>
+            <LinkList links={blogposts} />
           </>
         )}
       </div>
