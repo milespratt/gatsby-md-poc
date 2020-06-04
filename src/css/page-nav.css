@@ -1,12 +1,16 @@
 nav.page-nav {
   display: flex;
   align-items: center;
-
+  justify-content: center;
   height: 50px;
-  padding: 10px 25px;
+  margin: 10px 25px;
 }
 
-.spacer {
+nav.page-nav .nav-title {
+  margin: 0;
+}
+
+nav.page-nav .spacer {
   flex-grow: 1;
 }
 
@@ -14,4 +18,13 @@ nav.page-nav a {
   margin: 10px;
   text-decoration: none;
   font-size: large;
+  color: gray;
+}
+
+nav.page-nav a.active {
+  border-bottom: solid 2px;
+}
+
+nav.page-nav .nav-link-content {
+  margin: 0;
 }

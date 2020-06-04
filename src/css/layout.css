@@ -1,4 +1,12 @@
 .layout-content {
 	max-width: 1250px;
 	margin: auto;
+	padding: 20px;
+}
+
+.nav-divider {
+	margin-top: 0;
+	color: lightgrey;
+	width: 75%;
+	margin: auto;
 }

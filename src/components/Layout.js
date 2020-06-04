@@ -10,6 +10,7 @@ export default function Layout(props) {
 	return (
 		<div className="layout-container">
 			<PageNav pages={pages} />
+			<hr className="nav-divider" />
 			<div className="layout-content">
 				{props.children}
 			</div>
