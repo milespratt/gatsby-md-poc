@@ -10,6 +10,7 @@ export default function Navbar({ pages }) {
         return (
           <Link
             activeClassName={navStyles.nav__item__active}
+            partiallyActive={page.path !== "/" ? true : false}
             className={navStyles.nav__item}
             key={page.path}
             to={page.path}

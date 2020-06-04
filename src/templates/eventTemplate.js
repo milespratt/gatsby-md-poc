@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
+import Layout from "../components/Layout"
+
 export default function Template(props) {
   const {
     pageContext: { pages, events },
@@ -8,16 +10,7 @@ export default function Template(props) {
   const { markdownRemark } = props.data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
-    <div className="event-container">
-      <nav>
-        {pages.map(page => {
-          return (
-            <Link key={page.path} to={page.path}>
-              {page.title}
-            </Link>
-          )
-        })}
-      </nav>
+    <Layout pages={pages}>
       <div className="event">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
@@ -40,7 +33,7 @@ export default function Template(props) {
           </>
         )}
       </div>
-    </div>
+    </Layout>
   )
 }
 
