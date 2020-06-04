@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.header__logo {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+}
