@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import PageNav from "../components/PageNav"
+import Layout from "../components/Layout"
 import LinkList from "../components/LinkList"
 
 export default function Template(props) {
@@ -14,31 +14,28 @@ export default function Template(props) {
   const { frontmatter, html } = markdownRemark
 
   return (
-    <div className="page-container">
-      <PageNav pages={pages} />
-      <div className="page">
-        {/* show our page title and the generated page html */}
-        <h1>{frontmatter.title}</h1>
-        <div
-          className="page-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        {/* if the page slug inludes /blog, render a list of all blogposts */}
-        {frontmatter.slug.includes("/blog") && (
-          <>
-            <h2>Blog Posts</h2>
-            <LinkList links={blogposts} />
-          </>
-        )}
-        {/* if the page slug inludes /events, render a list of all events */}
-        {frontmatter.slug.includes("/events") && (
-          <>
-            <h2>Events</h2>
-            <LinkList links={events} />
-          </>
-        )}
-      </div>
-    </div>
+    <Layout pages={pages}>
+      {/* show our page title and the generated page html */}
+      <h1>{frontmatter.title}</h1>
+      <div
+        className="page-content"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      {/* if the page slug inludes /blog, render a list of all blogposts */}
+      {frontmatter.slug.includes("/blog") && (
+        <>
+          <h2>Blog Posts</h2>
+          <LinkList links={blogposts} />
+        </>
+      )}
+      {/* if the page slug inludes /events, render a list of all events */}
+      {frontmatter.slug.includes("/events") && (
+        <>
+          <h2>Events</h2>
+          <LinkList links={events} />
+        </>
+      )}
+    </Layout>
   )
 }
 

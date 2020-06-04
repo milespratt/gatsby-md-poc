@@ -8,9 +8,11 @@ export default function PageNav(props) {
 
 	return (
 		<nav class="page-nav">
+			<h2>Police Data Accessibility Project</h2>
+			<div className="spacer" />
 			{pages.map(page => (
 				<Link key={page.path} to={page.path}>
-					{page.title}
+					{page.title.toUpperCase()}
 				</Link>
 			))}
 		</nav>
