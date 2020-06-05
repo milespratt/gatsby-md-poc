@@ -40,6 +40,12 @@ type: "page"
 
 ### Publishing Changes
 
+#### Manual
+
 This project uses the [gh-pages](https://github.com/tschaub/gh-pages) package to build and publish the static Gatsby-generated files to GitHub Pages. By default, it will publish your static content to the gh-pages branch. You can edit your repository settings to [serve this branch](https://guides.github.com/features/pages/) on GitHub Pages.
 
 To publish your content simply run `npm run deploy`
+
+#### Automatic
+
+Changes can be published automatically via GitHub Actions. More info coming soon.
