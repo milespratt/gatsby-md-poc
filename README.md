@@ -1,4 +1,4 @@
-# A bare bones, Gatsby-powered, markdown-based, GitHub Pages hosted site generator
+# A bare bones, Gatsby-powered, markdown-based, GitHub Pages hosted site generator with GitHub Actions automated deploys
 
 This repository is home to the source code and static files that power and supply the content for a [GitHub Pages](https://pages.github.com/) hosted static site. Creating and editing the content of the site only requires knowledge of [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
@@ -40,12 +40,4 @@ type: "page"
 
 ### Publishing Changes
 
-#### Manual
-
-This project uses the [gh-pages](https://github.com/tschaub/gh-pages) package to build and publish the static Gatsby-generated files to GitHub Pages. By default, it will publish your static content to the gh-pages branch. You can edit your repository settings to [serve this branch](https://guides.github.com/features/pages/) on GitHub Pages.
-
-To publish your content simply run `npm run deploy`
-
-#### Automatic
-
-Changes can be published automatically via GitHub Actions. More info coming soon.
+Coming soon

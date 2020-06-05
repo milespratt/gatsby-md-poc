@@ -18,13 +18,11 @@
     "gatsby": "^2.22.15",
     "gatsby-plugin-playground": "^1.0.6",
     "gatsby-source-filesystem": "^2.3.10",
-    "gatsby-source-strapi": "0.0.12",
     "gatsby-transformer-remark": "^2.8.14",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "gh-pages": "^3.0.0",
     "prettier": "2.0.5"
   },
   "repository": {
