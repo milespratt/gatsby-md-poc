@@ -7,4 +7,4 @@ type: "page"
 
 ## Welcome to the home page!
 
-this is a home page
+Homepage stuff goes here
