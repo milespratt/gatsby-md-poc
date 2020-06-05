@@ -1,0 +1,13 @@
+# Information related to reporting security vulnerabilities of this site.
+
+# How to communicate about security issues.
+Contact: mailto:security1@example.com
+Contact: mailto:security2@example.com
+
+# Preferred languages for communication.     
+    Preferred-Languages: en
+
+# The most common URL for accessing this security.txt file.
+Canonical: https://example.com/.well-known/security.txt
+
+# Please see https://securitytxt.org/ for details of the specification of this file.
