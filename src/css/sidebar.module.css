@@ -1,0 +1,21 @@
+.sidebar {
+	margin: 20px 100px 0px 40px;
+	padding: 0;
+	min-width: 150px;
+	height: 100%;
+	overflow: auto;
+}
+
+.sidebar a {
+	display: block;
+	color: black;
+	padding: 5px 10px;
+	text-decoration: none;
+	transition: all 100ms ease;
+}
+
+.sidebar a.sidebar___active,
+.sidebar a:hover {
+	margin-bottom: 10px;
+	border-bottom: 2px solid black;
+}

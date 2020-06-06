@@ -10,3 +10,8 @@ body {
 .container {
   padding: 0px 30px;
 }
+
+hr {
+  width: 80%;
+  color: lightgray;
+}
